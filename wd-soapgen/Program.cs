@@ -21,11 +21,15 @@ namespace WD.SoapGen
                 new Option<string>(new string[] { "--dir", "-d" }, () => Directory.GetCurrentDirectory(), "Target project directory. Must contain a csproj file."),
                 new Option<string>(new string[] { "--namespace", "-n" }, "Namespace to generate code for. Default project name."),
                 new Option<bool>(new string[] { "--clean", "-c" }, () => true, "Clean previously generated files."),
-                new Option<bool>(new string[] { "--no-install", "-x" }, () => false, "Do not install ServiceModel dependencies.")
+                new Option<bool>(new string[] { "--no-install", "-x" }, () => false, "Do not install ServiceModel dependencies."),
+                new Option<string>(new string[] { "--roll-forward" }, "Control the .NET roll-forward behavior of dotnet-svcutil and xscgen.")
             };
 
-            root.Handler = CommandHandler.Create<string, string, string, bool, bool>((wsdl, dir, @namespace, clean, noInstall) =>
+            root.Handler = CommandHandler.Create<string, string, string, bool, bool, string>((wsdl, dir, @namespace, clean, noInstall, rollForward) =>
             {
+                Console.WriteLine("Roll-forward: " + rollForward);
+                Environment.Exit(0);
+
                 if (!TryDigestArgs(wsdl, dir, @namespace, out var sa))
                 {
                     return 1;

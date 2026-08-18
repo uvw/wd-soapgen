@@ -37,6 +37,8 @@ namespace WD.SoapGen.Tooling
                     FileName = ResolveBin("xscgen"),
                     ArgumentList =
                     {
+                        "--roll-forward",
+                        "LatestMajor",
                         "-o",
                         args.Directory,
                         "-n",
@@ -69,6 +71,8 @@ namespace WD.SoapGen.Tooling
                     FileName = ResolveBin("dotnet-svcutil"),
                     ArgumentList =
                     {
+                        "--roll-forward",
+                        "LatestMajor",
                         args.Wsdl,
                         "--outputDir",
                         args.Directory,
@@ -80,6 +84,7 @@ namespace WD.SoapGen.Tooling
                         args.ProjectFile(),
                         "--namespace",
                         $"\"*,{args.Namespace}\"",
+                        "--wrapped",
                         "--noLogo"
                     },
                     CreateNoWindow = true,
