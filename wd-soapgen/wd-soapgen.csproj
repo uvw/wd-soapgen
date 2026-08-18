@@ -22,8 +22,8 @@
 
   <ItemGroup>
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.21216.1" />
-	  <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.6.0" />
-	  <PackageReference Include="XmlSchemaClassGenerator-beta" Version="2.0.894" />
+	  <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
+	  <PackageReference Include="XmlSchemaClassGenerator-beta" Version="2.1.1162" />
   </ItemGroup>
 
 </Project>
