@@ -27,9 +27,6 @@ namespace WD.SoapGen
 
             root.Handler = CommandHandler.Create<string, string, string, bool, bool, string>((wsdl, dir, @namespace, clean, noInstall, rollForward) =>
             {
-                Console.WriteLine("Roll-forward: " + rollForward);
-                Environment.Exit(0);
-
                 if (!TryDigestArgs(wsdl, dir, @namespace, out var sa))
                 {
                     return 1;
